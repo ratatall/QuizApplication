@@ -1,0 +1,14 @@
+stages:
+  - build
+  - deploy
+
+build-job:
+  stage: build
+  script:
+    docker build -t my-img .
+    - echo "Compiling"
+deploy-job:
+  stage: deploy
+  script:
+    docker compose up -d
+    - echo "Everything is great!"
